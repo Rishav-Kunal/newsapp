@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">News App</string>
+    <string name="ad_visibility_pref">ad_visibility</string>
+</resources>

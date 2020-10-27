@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="viewmodel"
+            type="com.rishav.newsapp.viewmodel.NewsViewModel" />
+    </data>
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:id="@+id/cl_parent"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.NewsActivity">
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/horizontal_guide"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.6"/>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_articles"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        android:orientation="vertical"
+        tools:listitem="@layout/article_view_item"
+        android:layout_marginBottom="@dimen/margin_small"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/group_ad"/>
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/group_ad"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:visibility="gone"
+        android:background="@color/colorAccent"
+        app:constraint_referenced_ids="iv_close,iv_ad"
+        app:layout_constraintTop_toBottomOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/iv_close"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/margin_small"
+        android:layout_gravity="right"
+        app:srcCompat="@drawable/ic_close"
+        app:layout_constraintTop_toBottomOf="@+id/horizontal_guide"
+        app:layout_constraintRight_toRightOf="parent"/>
+    <ImageView
+        android:id="@+id/iv_ad"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_margin="@dimen/margin_small"
+        android:src="@drawable/money"
+        android:scaleType="fitXY"
+        app:layout_constraintTop_toBottomOf="@+id/iv_close"
+        app:layout_constraintBottom_toBottomOf="parent"
+        />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
